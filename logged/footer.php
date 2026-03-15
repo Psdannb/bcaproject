@@ -41,6 +41,7 @@
                     ✉️
                 </div>
             </div>
+            <a href="../index.php"> <button id="logoutbtn">Log out</button></a>
         </div>
     </div>
 </footer>

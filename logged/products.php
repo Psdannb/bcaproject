@@ -1,5 +1,5 @@
 <?php
-include "dbconnection.php";
+include "../dbconnection.php";
 $seekProductsSql="SELECT * FROM products";
 $productresponse= mysqli_query($conn,$seekProductsSql);
 // print_r($productresponse);

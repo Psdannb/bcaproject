@@ -10,7 +10,7 @@
             <label for="">password</label>
             <input type="password" placeholder="Enter password" name="psw">
             <input type="submit" value="log In">
-            <p id="response">resdp</p>
+            <p id="response"></p>
         </form>
     </div>
     <style>
@@ -58,8 +58,19 @@ $(document).ready(function() {
             data: userdata,
             processData: false,
             contentType: false,
+            dataType: "json",
+            beforeSend: function() {
+                alert("logging in...");
+            },
             success: function(res) {
-                $("#response").html(res);
+                // alert(res);
+                // $("#response").html(res.message);
+                if (res.status === "failed") {
+                    $("#response").html(res.message);
+                } else if (res.status === "success") {
+                    location.href = "logged/index.php";
+
+                }
             },
             error: function() {
                 alert("Error while login");
