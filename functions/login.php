@@ -5,24 +5,17 @@ include "../dbconnection.php";
 $username=$_POST['username'];
 $psw=$_POST['psw'];
 //seeking the username and password in the database
-$selectsql ="SELECT *FROM userdata";
+$selectsql ="SELECT *FROM userdata where username='$username' and password='$psw'";
 $response= mysqli_query($conn,$selectsql );
 if($response->num_rows>0){
 foreach($response as $data){
     $dbusername=$data['username'];
     $dbpsw=$data['password'];
     $role=$data['role'];
-    if($username==$dbusername && $psw== $dbpsw){
      $_SESSION['username']=$dbusername;
      $_SESSION['role']= $role;
         $output=["status"=>"success","message"=>"Login successfully"];
         echo json_encode($output);
-        die();
-    }
-    else{
-        $output=["status"=>"failed","message"=>"Username or password does not match"];
-         echo json_encode($output);
-    }
 }
 }
 else{

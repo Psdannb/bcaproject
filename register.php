@@ -4,13 +4,16 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <div class="logindiv">
         <form id="loginform">
-            <p>Login</p>
+            <p>Sign UP</p>
+            </p>
             <label for="">Username</label>
             <input type="text" placeholder="Enter username" name="username">
             <label for="">password</label>
             <input type="password" placeholder="Enter password" name="psw">
-            <input type="submit" value="log In">
-            <p>Dont have an account? <a href="register.php">Register here</a></p>
+            <label for=""> Confirm password</label>
+            <input type="password" placeholder="Retype password" name="cpsw">
+            <input type="submit" value="Register">
+            <p>Already have an account? <a href="index.php">Login here</a></p>
             <p id="response"></p>
         </form>
 
@@ -105,7 +108,7 @@ body {
     font-size: 0.95rem;
     min-height: 1.2rem;
     text-align: center;
-    color: #dc2626;
+    color: #dc2626 !important;
     margin: 0;
 }
     </style>
@@ -115,7 +118,7 @@ $(document).ready(function() {
         e.preventDefault();
         let userdata = new FormData(this);
         $.ajax({
-            url: 'functions/login.php',
+            url: 'functions/signup.php',
             type: 'POST',
             data: userdata,
             processData: false,

@@ -1,5 +1,7 @@
 <?php
 session_start();
+$username = $_SESSION['username'];
+$role = $_SESSION['role'];
 ?>
 
 <!DOCTYPE html>
@@ -30,16 +32,24 @@ session_start();
  ...................................................................... -->
         <nav>
             <ul>
-                <li><span></span> Welcome <?php echo $_SESSION['username'];?></li>
+                <li><span></span> Welcome <?php echo $username ;?></li>
                 <li><a href="index.php"><span>Home</span></a></li>
                 <li><a href="#products"><span>Products</span></a></li>
                 <li><a href="#about"><span>About</span></a></li>
                 <li><a href="#service"><span>Service</span></a></li>
                 <li><a href="#contact"><span>Contact</span></a></li>
                 <!-- <li><button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></li> -->
-                <li><a href="addproduct.php">Add Product</a></li>
+                <?php
+
+if($role == 1) {
+    ?>
+                <li><a href="addproduct.php">Product management</a></li>
+                <?php
+}
+?>
                 <!-- <li><a href="login.html"><i class="fa-chisel fa-regular fa-user"></i></a></li> -->
 
             </ul>
         </nav>
+
     </div>

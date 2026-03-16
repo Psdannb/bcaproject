@@ -1,5 +1,6 @@
 <?php
 include "header.php";
+include "menu.php";
 ?>
 <div class="addproduct">
     <form id="entryform">
