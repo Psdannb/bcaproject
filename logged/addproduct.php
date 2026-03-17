@@ -25,7 +25,7 @@ $(document).ready(function() {
         let userdata = new FormData(this);
         // console.log(userdata);
         $.ajax({
-            url: "functions/storeproduct.php",
+            url: "../functions/storeproduct.php",
             type: 'POST',
             data: userdata,
             processData: false,
@@ -54,3 +54,6 @@ $(document).ready(function() {
     min-width: 50%;
 }
 </style>
+<?php
+include "footer.php";
+?>
